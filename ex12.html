@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edit this template
+-->
+<html>
+    <head>
+        <?xml version="1.0" encoding="UTF-8"?>
+        <title>BTS Member Directory</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            text-align: center;
+            padding: 40px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            width: 70%;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px 18px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+<bts>
+    <member>
+        <name>RM</name>
+        <position>Leader / Rapper</position>
+        <year>1994</year>
+        <role>Producer</role>
+    </member>
+    <member>
+        <name>Jin</name>
+        <position>Vocalist / Visual</position>
+        <year>1992</year>
+        <role>Singer</role>
+    </member>
+    <member>
+        <name>Suga</name>
+        <position>Rapper</position>
+        <year>1993</year>
+        <role>Producer</role>
+    </member>
+    <member>
+        <name>J-Hope</name>
+        <position>Main Dancer / Rapper</position>
+        <year>1994</year>
+        <role>Performer</role>
+    </member>
+    <member>
+        <name>Jimin</name>
+        <position>Vocalist / Dancer</position>
+        <year>1995</year>
+        <role>Performer</role>
+    </member>
+    <member>
+        <name>V</name>
+        <position>Vocalist</position>
+        <year>1995</year>
+        <role>Singer</role>
+    </member>
+    <member>
+        <name>Jungkook</name>
+        <position>Main Vocalist / Maknae</position>
+        <year>1997</year>
+        <role>Singer</role>
+    </member>
+</bts>
+    </head>
+    <body>
+        <?php
+       $sxml = simplexml_load_file("bts_members.xml") or die("Error: Cannot load XML file.");
+
+echo "<h2>BTS Member Directory</h2>";
+echo "<table border='1' cellpadding='8' cellspacing='0'>";
+echo "<tr><th>Name</th><th>Position</th><th>Birth Year</th><th>Role</th></tr>";
+
+foreach ($sxml->member as $m) {
+    echo "<tr>";
+    echo "<td>" . $m->name . "</td>";
+    echo "<td>" . $m->position . "</td>";
+    echo "<td>" . $m->year . "</td>";
+    echo "<td>" . $m->role . "</td>";
+    echo "</tr>";
+}
+
+echo "</table>";
+        ?>
+
+</html>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<bts>
+    <member>
+        <name>RM</name>
+        <position>Leader / Rapper</position>
+        <year>1994</year>
+        <role>Producer</role>
+    </member>
+    <member>
+        <name>Jin</name>
+        <position>Vocalist / Visual</position>
+        <year>1992</year>
+        <role>Singer</role>
+    </member>
+    <member>
+        <name>Suga</name>
+        <position>Rapper</position>
+        <year>1993</year>
+        <role>Producer</role>
+    </member>
+    <member>
+        <name>J-Hope</name>
+        <position>Main Dancer / Rapper</position>
+        <year>1994</year>
+        <role>Performer</role>
+    </member>
+    <member>
+        <name>Jimin</name>
+        <position>Vocalist / Dancer</position>
+        <year>1995</year>
+        <role>Performer</role>
+    </member>
+    <member>
+        <name>V</name>
+        <position>Vocalist</position>
+        <year>1995</year>
+        <role>Singer</role>
+    </member>
+    <member>
+        <name>Jungkook</name>
+        <position>Main Vocalist / Maknae</position>
+        <year>1997</year>
+        <role>Singer</role>
+    </member>
+</bts>
